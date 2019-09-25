@@ -2,29 +2,100 @@
 
 -- grab all data from the film table
 
+SELECT *
+FROM
+film
+
 
 -- English films only : return all films that have a language ID of 1
 -- (note: we already know this happens to be all the films in the database
 -- but let's make sure we know how to do this IF there was multiple languages)
 
+SELECT * 
+FROM
+film
+WHERE 
+language_id = 1
+LIMIT
+10;
 
 -- English films for todlers
 -- return all films with language ID of 1 and is rated G
 
-	  
+SELECT * 
+FROM
+film
+WHERE 
+language_id = 1
+AND
+rating = 'G'
+LIMIT
+10;
+
 -- Family friendly English films
 -- return all films with language ID of 1 and is rated G, PG, or PG-13
+
+SELECT *
+FROM
+film
+WHERE 
+language_id = 1
+AND
+rating = 'G'
+or
+rating = 'PG'
+or 
+rating = 'PG-13';
 
 
 -- Family friendly English films on a budget:
 -- return all films with language ID of 1 and is rated G, PG, or PG-13,
 -- and have a rental rate less than $3 and a replacement cost less than $10
 
+
+SELECT *
+FROM
+film
+WHERE 
+language_id = 1
+AND
+rating = 'G'
+or
+rating = 'PG'
+or 
+rating = 'PG-13'
+AND 
+replacement_cost < 10
+AND 
+rental_rate < 3
+;
+
 	  
 -- Nostalgiac family friendly English films on a budget with a short attention span!:
 -- return all films with language ID of 1 and is rated G, PG, or PG-13,
 -- and have a rental rate less than $3 and a replacement cost less than $10,
 -- and last less than an hour and a half long, from the year 2006 or earlier
+
+SELECT *
+FROM
+film
+WHERE 
+language_id = 1
+AND
+rating = 'G'
+or
+rating = 'PG'
+or 
+rating = 'PG-13'
+AND 
+replacement_cost < 10
+AND 
+rental_rate < 3
+AND
+release_year < 2006
+AND
+length < 90
+;
 
 	  
 -- BONUS
